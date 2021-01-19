@@ -4,25 +4,29 @@ A simple example to demonstrate Highcharts capabilities.
 
 ## Visual Design
 
-<figure>
-    <img
-        src="assets/pie-chart.png"
-        alt="Pie Chart"
-        width="320"
-        height="320"
-    />
-    <figcaption>Pie Chart</figcaption>
-</figure>
-
-<figure>
-    <img
-        src="assets/pie-selected.png"
-        alt="Pie Selected"
-        width="320"
-        height="320"
-    />
-    <figcaption>Pie Selected</figcaption>
-</figure>
+<div>
+    <figure>
+        <img
+            src="assets/pie-chart.png"
+            alt="Pie Chart"
+            width="320"
+            height="320"
+        />
+        <figcaption>Pie Chart</figcaption>
+    </figure>
+    
+    &nbsp;
+    
+    <figure>
+        <img
+            src="assets/pie-selected.png"
+            alt="Pie Selected"
+            width="320"
+            height="320"
+        />
+        <figcaption>Pie Selected</figcaption>
+    </figure>
+</div>
 
 ### Specifications
 
