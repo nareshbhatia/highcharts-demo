@@ -3,6 +3,9 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import './App.css';
 
+const gridSize = 152;
+const gridInnerSize = gridSize - 32;
+
 const options = {
     chart: {
         type: 'pie',
@@ -13,13 +16,18 @@ const options = {
     credits: {
         enabled: false,
     },
+    plotOptions: {
+        pie: {
+            size: gridSize,
+            innerSize: gridInnerSize,
+        }
+    },
     title: {
         text: 'Top spending categories',
         align: 'left',
     },
     series: [
         {
-            innerSize: '70%',
             data: [
                 {
                     name: 'Food & Dining',
