@@ -1,0 +1,11 @@
+body {
+    font-family: 'Overpass', sans-serif;
+}
+
+.app {
+    margin: 16px;
+    width: 320px;
+    height: 320px;
+    border: 1px solid #E2E6E9;
+    border-radius: 3px;
+}

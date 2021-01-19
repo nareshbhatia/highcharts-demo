@@ -1,0 +1,55 @@
+{
+  "name": "highcharts-demo",
+  "description": "A simple example to demonstrate Highcharts capabilities",
+  "version": "0.1.0",
+  "author": "Naresh Bhatia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nareshbhatia/highcharts-demo"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "format": "prettier --write README.md 'src/**/{*.md,*.json,*.ts*}'",
+    "start": "react-scripts start",
+    "test": "react-scripts test"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "highcharts": "^8.2.2",
+    "highcharts-react-official": "^3.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "prettier": "^2.2.1",
+    "react-scripts": "4.0.1",
+    "typescript": "^4.0.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
