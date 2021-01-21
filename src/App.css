@@ -4,6 +4,9 @@ body {
 
 .app {
     margin: 16px;
+}
+
+.chart {
     width: 320px;
     height: 320px;
     border: 1px solid #E2E6E9;

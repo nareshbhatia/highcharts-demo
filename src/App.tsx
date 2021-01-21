@@ -1,63 +1,42 @@
 import React from 'react';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
+import { DataPoint } from './DataPoint';
+import { PieChart } from './PieChart';
 import './App.css';
 
-const gridSize = 152;
-const gridInnerSize = gridSize - 32;
+const pieSize = 152;
+const pieInnerSize = pieSize - 32;
 
-const options = {
-    chart: {
-        type: 'pie',
-        style: {
-            fontFamily: 'Overpass',
-        },
+const data: Array<DataPoint> = [
+    {
+        name: 'Food & Dining',
+        y: 22,
     },
-    credits: {
-        enabled: false,
+    {
+        name: 'Health Insurance',
+        y: 18,
     },
-    plotOptions: {
-        pie: {
-            size: gridSize,
-            innerSize: gridInnerSize,
-        }
+    {
+        name: 'Miscellaneous',
+        y: 32,
     },
-    title: {
-        text: 'Top spending categories',
-        align: 'left',
+    {
+        name: 'Travel & Shopping',
+        y: 16,
     },
-    series: [
-        {
-            data: [
-                {
-                    name: 'Food & Dining',
-                    y: 22,
-                },
-                {
-                    name: 'Health Insurance',
-                    y: 18,
-                },
-                {
-                    name: 'Miscellaneous',
-                    y: 32,
-                },
-                {
-                    name: 'Travel & Shopping',
-                    y: 16,
-                },
-            ],
-        },
-    ],
-};
+];
 
 export const App = () => {
     return (
-        <div className="app">
-            <HighchartsReact
-                highcharts={Highcharts}
-                containerProps={{ style: { width: '100%', height: '100%' } }}
-                options={options}
-            />
-        </div>
+        <main className="app">
+            <div className="chart">
+                <PieChart
+                    title="Top spending categories"
+                    totalLabel="$ per month"
+                    pieSize={pieSize}
+                    pieInnerSize={pieInnerSize}
+                    data={data}
+                />
+            </div>
+        </main>
     );
 };
