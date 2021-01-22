@@ -126,26 +126,34 @@ export const PieChart = ({
         );
 
         // render total
-        const x = chart.plotSizeX / 2 - chart.plotLeft / 2;
-        const y = chart.plotSizeY / 2 + chart.plotTop;
-
-        chart.totalValue = chart.renderer
-            .text(total, x, y)
+        const totalElement = chart.renderer
+            .text(total, 0, 0)
             .css({
                 fontSize: '32px',
             })
             .add();
 
-        chart.totalValueLabel = chart.renderer
+        const totalLabelElement = chart.renderer
             .text(totalLabel, 0, 0)
             .css({
                 fontSize: '12px',
             })
             .add();
 
-        chart.totalValueLabel.translate(
-            x - chart.totalValueLabel.getBBox().width / 4,
-            y + chart.totalValue.getBBox().height / 2
+        const totalElementBox = totalElement.getBBox();
+        const totalLabelElementBox = totalLabelElement.getBBox();
+
+        // Place total above center.
+        // This is done by ignoring totalElementBox.height
+        totalElement.translate(
+            chart.plotLeft + (chart.plotWidth - totalElementBox.width) / 2,
+            chart.plotTop + chart.plotHeight / 2
+        );
+
+        // Place total label below label.
+        totalLabelElement.translate(
+            chart.plotLeft + (chart.plotWidth - totalLabelElementBox.width) / 2,
+            chart.plotTop + (chart.plotHeight + totalElementBox.height) / 2
         );
     }, [title, totalLabel, pieSize, pieInnerSize, data]);
 
