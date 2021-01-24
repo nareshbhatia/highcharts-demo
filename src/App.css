@@ -7,8 +7,14 @@ body {
 }
 
 .chart {
-    width: 320px;
     height: 320px;
     border: 1px solid #E2E6E9;
     border-radius: 3px;
+}
+
+.form {
+    margin-top: 16px;
+    border: 1px solid #E2E6E9;
+    border-radius: 3px;
+    width: 368px;
 }
