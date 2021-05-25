@@ -22,6 +22,15 @@ A simple example to demonstrate Highcharts capabilities.
     height="320"
 />
 
+**Column Chart**
+
+<img
+src="assets/column-chart.png"
+alt="Column Chart"
+width="320"
+height="320"
+/>
+
 ### Specifications
 
 -   Chart size: 320 x 320 px
@@ -31,10 +40,6 @@ A simple example to demonstrate Highcharts capabilities.
     -   General: 12px
     -   Title: 16px
     -   Total count: 32px
-
-## Live Demo
-
-Try out a live demo [here](https://example.com).
 
 ## Getting Started
 

@@ -3,19 +3,6 @@ import Highcharts, { Chart } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { DataPoint } from './DataPoint';
 
-Highcharts.setOptions({
-    colors: [
-        '#00BFF8',
-        '#008733',
-        '#FFB618',
-        '#FF4A44',
-        '#64E572',
-        '#FF9655',
-        '#FFF263',
-        '#6AF9C4',
-    ],
-});
-
 export interface PieChartProps {
     title: string;
     totalLabel: string;
@@ -61,7 +48,7 @@ export const PieChart = ({
                     // compute total
                     const total = data.reduce(
                         (accumulator, currentValue) =>
-                            accumulator + currentValue.y,
+                            accumulator + currentValue.value,
                         0
                     );
 
@@ -148,6 +135,10 @@ export const PieChart = ({
 
     useEffect(() => {
         // set options from props
+        const pieData = data.map((point) => ({
+            name: point.name,
+            y: point.value,
+        }));
         setChartOptions({
             plotOptions: {
                 pie: {
@@ -156,7 +147,7 @@ export const PieChart = ({
                     innerSize: pieInnerSize,
                 },
             },
-            series: [{ data }],
+            series: [{ data: pieData }],
             title: {
                 // @ts-ignore
                 text: title,
