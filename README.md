@@ -33,13 +33,13 @@ height="320"
 
 ### Specifications
 
--   Chart size: 320 x 320 px
--   Donut diameter: 152px
--   Font family: Overpass
--   Font sizes:
-    -   General: 12px
-    -   Title: 16px
-    -   Total count: 32px
+- Chart size: 320 x 320 px
+- Donut diameter: 152px
+- Font family: Overpass
+- Font sizes:
+  - General: 12px
+  - Title: 16px
+  - Total count: 32px
 
 ## Getting Started
 
