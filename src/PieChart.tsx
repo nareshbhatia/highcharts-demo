@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Highcharts, { Chart } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import { DataPoint } from './DataPoint';
+import { DataPoint, DataPointHelpers } from './DataPoint';
 
 export interface PieChartProps {
   title: string;
@@ -46,10 +46,7 @@ export const PieChart = ({
           }
 
           // compute total
-          const total = data.reduce(
-            (accumulator, currentValue) => accumulator + currentValue.value,
-            0
-          );
+          const total = DataPointHelpers.getTotal(data);
 
           // render total
           // @ts-ignore
@@ -130,11 +127,6 @@ export const PieChart = ({
   });
 
   useEffect(() => {
-    // set options from props
-    const pieData = data.map((point) => ({
-      name: point.name,
-      y: point.value,
-    }));
     setChartOptions({
       plotOptions: {
         pie: {
@@ -143,7 +135,7 @@ export const PieChart = ({
           innerSize: pieInnerSize,
         },
       },
-      series: [{ data: pieData }],
+      series: [{ data }],
       title: {
         // @ts-ignore
         text: title,

@@ -59,7 +59,7 @@ export const ColumnChart = ({ title, data }: ColumnChartProps) => {
     // set options from props
     const columnData = data.map((point) => ({
       name: point.name,
-      data: [point.value],
+      data: [point.y],
     }));
     setChartOptions({
       // @ts-ignore

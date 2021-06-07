@@ -9,10 +9,10 @@ const pieSize = 152;
 const pieInnerSize = pieSize - 32;
 
 const initialMonthlySpending: Array<DataPoint> = [
-  { name: 'Food & Dining', value: 22 },
-  { name: 'Health Insurance', value: 18 },
-  { name: 'Miscellaneous', value: 32 },
-  { name: 'Travel & Shopping', value: 16 },
+  { name: 'Food & Dining', y: 22 },
+  { name: 'Health Insurance', y: 18 },
+  { name: 'Miscellaneous', y: 32 },
+  { name: 'Travel & Shopping', y: 16 },
 ];
 
 const categoryIds = ['food', 'health', 'misc', 'travel'];
@@ -39,12 +39,13 @@ export const App = () => {
     e.preventDefault();
 
     // Set new values for monthly spending
+    // @ts-ignore
     const elements = e.currentTarget.elements['monthlySpending'];
     const newMonthlySpending = [];
     for (let i = 0; i < elements.length; i++) {
       newMonthlySpending.push({
         name: monthlySpending[i].name,
-        value: parseInt(elements[i].value, 10),
+        y: parseInt(elements[i].value, 10),
       });
     }
     setMonthlySpending(newMonthlySpending);
@@ -75,7 +76,7 @@ export const App = () => {
                 id={categoryIds[i]}
                 name="monthlySpending"
                 className="form-control"
-                defaultValue={category.value}
+                defaultValue={category.y}
               />
             </div>
           ))}
