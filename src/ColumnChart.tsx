@@ -22,6 +22,9 @@ export const ColumnChart = ({ title, data }: ColumnChartProps) => {
     plotOptions: {
       column: {
         allowPointSelect: true,
+        dataLabels: {
+          enabled: true,
+        },
       },
       series: {
         cursor: 'pointer',
@@ -44,11 +47,17 @@ export const ColumnChart = ({ title, data }: ColumnChartProps) => {
       },
       tickLength: 0,
     },
+    yAxis: {
+      title: {
+        text: '',
+      },
+    },
     title: {
       align: 'left',
       style: {
         fontSize: '16px',
       },
+      text: title,
     },
     tooltip: {
       enabled: false,
@@ -61,15 +70,13 @@ export const ColumnChart = ({ title, data }: ColumnChartProps) => {
       name: point.name,
       data: [point.y],
     }));
+    // overwrite the options - the new ones will be passed to chart.update()
+    // see https://github.com/highcharts/highcharts-react#optimal-way-to-update
     setChartOptions({
       // @ts-ignore
       series: columnData,
-      title: {
-        // @ts-ignore
-        text: title,
-      },
     });
-  }, [title, data]);
+  }, [data]);
 
   return (
     <HighchartsReact

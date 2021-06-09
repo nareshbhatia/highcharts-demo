@@ -6,18 +6,10 @@ import { DataPoint, DataPointHelpers } from './DataPoint';
 export interface PieChartProps {
   title: string;
   totalLabel: string;
-  pieSize: number;
-  pieInnerSize: number;
   data: Array<DataPoint>;
 }
 
-export const PieChart = ({
-  title,
-  totalLabel,
-  pieSize,
-  pieInnerSize,
-  data,
-}: PieChartProps) => {
+export const PieChart = ({ title, totalLabel, data }: PieChartProps) => {
   const chartRef = useRef<{
     chart: Chart;
     container: React.RefObject<HTMLDivElement>;
@@ -93,6 +85,9 @@ export const PieChart = ({
     plotOptions: {
       pie: {
         allowPointSelect: true,
+        cursor: 'pointer',
+        size: '60%',
+        innerSize: '80%',
         dataLabels: {
           distance: 30, // this is the default
           format: '{point.name}<br /><b>{point.y}</b>',
@@ -104,7 +99,6 @@ export const PieChart = ({
         },
       },
       series: {
-        cursor: 'pointer',
         states: {
           hover: {
             enabled: false,
@@ -115,33 +109,46 @@ export const PieChart = ({
         },
       },
     },
+    series: [{}],
     title: {
       align: 'left',
       style: {
         fontSize: '16px',
       },
+      text: title,
     },
     tooltip: {
       enabled: false,
     },
+    responsive: {
+      rules: [
+        {
+          condition: {
+            // rule applies when chart width is less than this
+            maxWidth: 325,
+          },
+          chartOptions: {
+            plotOptions: {
+              pie: {
+                dataLabels: {
+                  distance: 25,
+                },
+              },
+            },
+          },
+        },
+      ],
+    },
   });
 
   useEffect(() => {
+    // overwrite the options - the new ones will be passed to chart.update()
+    // see https://github.com/highcharts/highcharts-react#optimal-way-to-update
+    // @ts-ignore
     setChartOptions({
-      plotOptions: {
-        pie: {
-          // @ts-ignore
-          size: pieSize,
-          innerSize: pieInnerSize,
-        },
-      },
       series: [{ data }],
-      title: {
-        // @ts-ignore
-        text: title,
-      },
     });
-  }, [title, totalLabel, pieSize, pieInnerSize, data]);
+  }, [data]);
 
   return (
     <HighchartsReact
